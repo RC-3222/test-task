@@ -30,7 +30,7 @@ const messageError = document.querySelector('.message-error');
 
 const handleRequest = async (data) => {
     try {
-        const response = await fetch('some-api-url', {
+        const response = await fetch('http://example.com/api/endpoint/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -88,15 +88,16 @@ form.addEventListener('submit', function (event) {
         return;
     }
 
+    // имитация запроса
+    handleRequest({
+        name: nameInput.value,
+        email: emailInput.value,
+        message: messageInput.value
+    }).catch((err) => console.error(err));
+
+
     // сброс введённых значений
     nameInput.value = '';
     emailInput.value = '';
     messageInput.value = '';
-
-    // имитация запроса
-    handleRequest({
-        name: nameValue,
-        email: emailValue,
-        message: messageValue
-    }).catch((err) => console.error(err));
 })
