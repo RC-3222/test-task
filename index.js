@@ -46,7 +46,11 @@ const handleRequest = async (data) => {
     }
 }
 
-const validateInputs = (nameValue, emailValue, messageValue) => {
+const validateInputs = () => {
+    const nameValue = nameInput.value.trim();
+    const emailValue = emailInput.value.trim();
+    const messageValue = messageInput.value.trim();
+
     const isNameValid = nameValue !== '';
     const isEmailValid = (
         emailValue !== ''
@@ -58,11 +62,7 @@ const validateInputs = (nameValue, emailValue, messageValue) => {
 }
 
 const validateForm = () => {
-    const nameValue = nameInput.value.trim();
-    const emailValue = emailInput.value.trim();
-    const messageValue = messageInput.value.trim();
-
-    const { isNameValid, isEmailValid, isMessageValid } = validateInputs(nameValue, emailValue, messageValue);
+    const { isNameValid, isEmailValid, isMessageValid } = validateInputs();
 
     // показ или скрытие ошибок
     if (isNameValid) nameError.classList.add('hidden');
