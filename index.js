@@ -52,15 +52,15 @@ const validateInputs = (nameValue, emailValue, messageValue) => {
         emailValue !== ''
         && !!emailValue.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
     );
-    const isMessageValid = messageValue.trim() !== '';
+    const isMessageValid = messageValue !== '';
 
     return { isNameValid, isEmailValid, isMessageValid };
 }
 
 const validateForm = () => {
     const nameValue = nameInput.value.trim();
-    const emailValue = nameInput.value.trim();
-    const messageValue = nameInput.value.trim();
+    const emailValue = emailInput.value.trim();
+    const messageValue = messageInput.value.trim();
 
     const { isNameValid, isEmailValid, isMessageValid } = validateInputs(nameValue, emailValue, messageValue);
 
