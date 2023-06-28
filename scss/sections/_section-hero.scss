@@ -1,0 +1,41 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.section-hero {
+    position: relative;
+
+    padding-top: 206px;
+    height: 800px;
+
+    @media (max-width: 1140px) {
+        height: 640px;
+    }
+
+    @media (max-width:800px) {
+        margin: 40px 10px;
+    }
+
+    &__content {
+        width: min(535px, 90%);
+
+        @media (max-width: 1440px) {
+            padding: 10px;
+        }
+
+        &__h3 {
+            @include h3--left-circle;
+        }
+
+        &__h1 {
+            @include font-h1;
+            margin: 4px 0;
+        }
+
+        &__btn-block {
+            margin-top: 25px;
+
+            display: flex;
+            gap: 10px;
+        }
+    }
+}

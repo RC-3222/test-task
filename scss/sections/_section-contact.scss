@@ -1,0 +1,136 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.section-contact {
+    margin-left: 52px;
+    margin-right: 35px;
+    margin-bottom: 92px;
+
+    display: flex;
+    gap: 64px;
+
+    @media (max-width:800px) {
+        margin: 40px 10px;
+    }
+
+    &__photo {
+        width: 400px;
+        height: 600px;
+
+        @media (max-width:800px) {
+            display: none;
+        }
+    }
+
+    &__content {
+        padding-top: 4px;
+        width: 100%;
+
+        &__h2 {
+            @include font-h2--alt;
+            margin: 0;
+            margin-top: 6px;
+        }
+
+        &__h3 {
+            @include h3--left-circle;
+
+            @media (max-width:385px) {
+                margin-bottom: 26px;
+            }
+        }
+
+        &__p {
+            @include font-normal--bold;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__form {
+        display: flex;
+
+        flex-direction: column;
+
+        @include font-normal--small;
+
+        width: min(585px, 100%);
+        margin: 0;
+
+        &__input-container {
+            width: 100%;
+            display: flex;
+            gap: min(10%, 25px);
+
+            margin: 30px 0;
+
+            @media (max-width:460px) {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        &__input {
+            position: relative;
+
+            &>label {
+                position: absolute;
+                left: 20px;
+                top: -8px;
+                background-color: $clr-white;
+                padding: 0 8px;
+                margin: 0;
+            }
+
+            &>span {
+                color: red;
+            }
+
+            &--text {
+                width: min(100%, 280px);
+
+                @media (max-width:460px) {
+                    width: 100%;
+                }
+
+                &>input {
+                    width: 100%;
+                    height: 45px;
+
+                    border: 1px solid $clr-black;
+
+                    padding: 14px 20px;
+                    outline: none;
+                }
+            }
+
+            &--textarea {
+                margin: 0;
+
+                &>textarea {
+                    resize: none;
+
+                    width: 100%;
+                    height: 190px;
+
+                    border: 1px solid $clr-black;
+
+                    padding: 14px 20px;
+                    margin: 0;
+                    outline: none;
+                }
+            }
+        }
+
+        & button {
+            align-self: flex-start;
+
+            margin-top: 20px;
+
+            @media (max-width:600px) {
+                align-self: center;
+            }
+        }
+    }
+}

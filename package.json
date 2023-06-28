@@ -1,0 +1,14 @@
+{
+  "name": "digchief_test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sass --watch scss/index.scss css/style.css"
+  },
+  "author": "me",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.63.6"
+  }
+}

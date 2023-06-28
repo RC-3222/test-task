@@ -1,0 +1,171 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.burger-btn {
+    position: fixed;
+    z-index: 5;
+
+    display: grid;
+    place-content: center;
+
+    top: 20px;
+    right: 30px;
+    height: 21px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    div {
+        position: relative;
+
+        width: 36px;
+        height: 3px;
+
+        background-color: $clr-black;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -9px;
+            right: 0;
+
+            width: 30px;
+            height: 3px;
+
+            background-color: $clr-black;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 9px;
+            right: 0;
+
+            width: 30px;
+            height: 3px;
+
+            background-color: $clr-black;
+        }
+    }
+}
+
+.burger-menu {
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 55;
+    overflow-y: auto;
+    width: 345px;
+    background-color: $clr-orange;
+
+    justify-content: space-between;
+
+    display: none;
+
+    .menu-opened & {
+        display: flex;
+    }
+
+    @media (max-width:365px) {
+        width: min(250px, 100%);
+    }
+
+    &__close-btn {
+        cursor: pointer;
+
+        position: absolute;
+        right: 25px;
+        top: 25px;
+
+        background: none;
+        border: none;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    ul {
+        padding: 0 75px;
+
+        margin-top: 140px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+
+        list-style: none;
+
+        @media (max-width:365px) {
+            padding-left: 55px;
+            padding-right: 20px;
+        }
+
+        li {
+            position: relative;
+
+            &::before {
+                content: '';
+
+                position: absolute;
+                z-index: -1;
+
+                border-radius: 50%;
+
+                top: 10px;
+                left: -35px;
+
+                width: 15px;
+                height: 15px;
+
+                border: 1px solid $clr-black;
+            }
+
+            a {
+                text-decoration: none;
+
+                text-transform: uppercase;
+
+                color: $clr-white;
+
+                font-family: 'Poppins', sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 36px;
+                letter-spacing: 0em;
+            }
+        }
+    }
+
+    &__socials {
+        align-self: center;
+        padding-bottom: 50px;
+    }
+
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba($color: #FFFFFF, $alpha: 0.75);
+
+    display: none;
+
+    .menu-opened & {
+        display: block;
+    }
+}

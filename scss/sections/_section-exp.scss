@@ -1,0 +1,148 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+.section-exp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 120px min(65px, 5vw);
+
+    @media (max-width:800px) {
+        margin: 40px 10px;
+    }
+
+    &__h3 {
+        @include h3--centered-circle;
+    }
+
+    &__h2 {
+        @include font-h2--alt;
+
+        margin: 0;
+        margin-top: 6px;
+    }
+
+    &__item {
+        margin-top: 45px;
+
+        &-container {
+            display: flex;
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: max(136px, 7vw);
+
+            @media (max-width:800px) {
+                gap: 40px;
+                margin: 40px 0;
+            }
+
+            margin: 60px 0;
+        }
+
+        &__header {
+            position: relative;
+            padding-left: 42px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            &__img {
+                position: relative;
+                top: 14px;
+                left: 14px;
+
+                &-container {
+                    position: relative;
+                    width: 36px;
+                    height: 36px;
+
+                    &::before {
+                        position: absolute;
+                        z-index: -1;
+
+                        top: 0;
+                        left: 0;
+
+                        content: '';
+                        @include circle($clr-orange, 36px)
+                    }
+
+
+                    &::after {
+                        content: '';
+
+                        position: absolute;
+                        z-index: -2;
+
+                        top: 50%;
+                        right: 100%;
+
+                        width: 42px;
+
+                        border: 1px solid $clr-black;
+                    }
+                }
+            }
+
+            &__text {
+                margin-left: 20px;
+
+                &__h4 {
+                    @include font-normal--bold;
+                    margin: 0;
+                }
+
+                &__p {
+                    @include font-normal--small;
+                    margin: 0;
+                }
+            }
+        }
+
+        &__text {
+            padding-left: 42px;
+            width: min(375px, 100%);
+
+            &__p {
+                @include font-normal--small;
+                margin: 0;
+            }
+        }
+
+        &-block {
+
+            width: min(425px, 95%);
+            border-left: 2px solid $clr-black;
+
+            position: relative;
+
+
+            &::before {
+                position: absolute;
+                z-index: 2;
+
+                top: 0px;
+                left: -8px;
+
+                content: '';
+                @include circle($clr-orange, 15px);
+            }
+
+            &__h3 {
+                position: relative;
+                bottom: 8px;
+                @include font-h2;
+                margin: 0;
+                margin-left: 42px;
+                margin-bottom: 37px;
+            }
+
+        }
+    }
+}
