@@ -30,7 +30,7 @@ const messageError = document.querySelector('.message-error');
 
 const handleRequest = async (data) => {
     try {
-        const response = await fetch('http://example.com/api/endpoint/', {
+        const response = await fetch('https://example.com/api/endpoint/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
