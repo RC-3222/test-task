@@ -84,7 +84,7 @@ form.addEventListener('submit', function (event) {
     const isFormValid = validateForm();
 
     if (!isFormValid) {
-        alert('Некорректные данные, запрос не отправлен');
+        //alert('Некорректные данные, запрос не отправлен');
         return;
     }
 
