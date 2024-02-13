@@ -9,6 +9,8 @@
     height: 800px;
     width: 100vw;
 
+    opacity: .625;
+
     @media (max-width:1140px) {
         grid-column: 1/2;
         height: 640px;
